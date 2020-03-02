@@ -1,29 +1,29 @@
 {
   "name": "poster-service",
-  "version": "1.0.0",
-  "description": "API providing movie posters",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "micro",
-    "test": "ava"
-  },
+  "version": "0.0.1",
+  "description": "Movie poster microservice for usage by Kwiz ",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kwizapp/poster-service.git"
   },
-  "author": "Scheitlin Alex, Schlaefli Roland, Zaugg Nik",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kwizapp/poster-service/issues"
+  "maintainers": [
+    "Alex Scheitlin <alex.scheitlin@uzh.ch>",
+    "Roland Schlaefli <rolandschlaefli@gmail.com>",
+    "Nik Zaugg <nik.zaugg@uzh.ch>"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "micro index.js",
+    "test": "ava"
   },
-  "homepage": "https://github.com/kwizapp/poster-service#readme",
   "dependencies": {
-    "micro": "^9.3.4",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.5"
+    "micro": "9.3.4",
+    "request": "2.88.2",
+    "request-promise": "4.2.5"
   },
   "devDependencies": {
-    "ava": "^3.5.0",
-    "test-listen": "^1.1.0"
+    "ava": "3.5.0",
+    "test-listen": "1.1.0"
   }
 }
