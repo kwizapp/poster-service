@@ -1,0 +1,19 @@
+{
+  "name": "poster-service",
+  "version": "1.0.0",
+  "description": "API providing movie posters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwizapp/poster-service.git"
+  },
+  "author": "Scheitlin Alex, Schlaefli Roland, Zaugg Nik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwizapp/poster-service/issues"
+  },
+  "homepage": "https://github.com/kwizapp/poster-service#readme"
+}
