@@ -24,3 +24,13 @@ jobs:
       - run: npm test
         env:
           CI: 'true'
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build . --tag kwizapp/poster-service:$(date +%s) --tag kwizapp/poster-service:latest
+      - name: Push the Docker image to Docker Hub
+        run: docker push kwizapp/poster-service
