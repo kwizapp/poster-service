@@ -35,6 +35,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Build the Docker image
-        run: docker build . --tag kwizapp/poster-service:$(date +%s) --tag kwizapp/poster-service:latest
+        run: docker build . --tag kwizapp/poster-service:$(date) --tag kwizapp/poster-service:latest
       - name: Push the Docker image to Docker Hub
         run: docker push kwizapp/poster-service
