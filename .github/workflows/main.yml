@@ -30,6 +30,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: azure/docker-login@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Build the Docker image
         run: docker build . --tag kwizapp/poster-service:$(date +%s) --tag kwizapp/poster-service:latest
       - name: Push the Docker image to Docker Hub
