@@ -35,9 +35,17 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Build the Docker image
-        run: docker build . --tag kwizapp/poster-service:latest
+        run: docker build . --tag kwizapp/poster-service:latest --tag registry.heroku.com/kwiz-poster-service/web
       - name: Push the Docker image to Docker Hub
         run: docker push kwizapp/poster-service
+      - name: Login to Heroku
+        uses: actions/heroku@master
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        with:
+          args: container:login
+      - name: Push the Docker image to Heroku
+        run: docker push registry.heroku.com/kwiz-poster-service/web
 
   deploy:
     runs-on: ubuntu-latest
