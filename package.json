@@ -2,9 +2,10 @@
   "name": "poster-service",
   "version": "1.0.0",
   "description": "API providing movie posters",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "micro",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/kwizapp/poster-service/issues"
   },
-  "homepage": "https://github.com/kwizapp/poster-service#readme"
+  "homepage": "https://github.com/kwizapp/poster-service#readme",
+  "dependencies": {
+    "micro": "^9.3.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  },
+  "devDependencies": {
+    "ava": "^3.5.0",
+    "test-listen": "^1.1.0"
+  }
 }
