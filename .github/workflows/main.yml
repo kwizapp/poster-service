@@ -38,3 +38,14 @@ jobs:
         run: docker build . --tag kwizapp/poster-service:$(date) --tag kwizapp/poster-service:latest
       - name: Push the Docker image to Docker Hub
         run: docker push kwizapp/poster-service
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Heroku
+        uses: actions/heroku@master
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        with:
+          args: container:login
