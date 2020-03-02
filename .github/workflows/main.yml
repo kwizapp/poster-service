@@ -25,8 +25,9 @@ jobs:
         env:
           CI: 'true'
 
-  build:
+  build_hub:
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
       - uses: actions/checkout@v2
@@ -38,21 +39,28 @@ jobs:
         run: docker build . --tag kwizapp/poster-service:latest
       - name: Push the Docker image to Docker Hub
         run: docker push kwizapp/poster-service
-      - name: Login to Heroku
-        uses: actions/heroku@master
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+  build_heroku:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Pull the latest image from Docker Hub
+        run: docker pull kwizapp/poster-service:latest
+      - uses: azure/docker-login@v1
         with:
-          args: container:login
-      - name: push
-        uses: actions/heroku@master
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        with:
-          args: container:push -a kwiz-poster-service web
+          login-server: registry.heroku.com
+          username: _
+          password: ${{ secrets.HEROKU_API_KEY }}
+      - name: Build the Docker image
+        run: docker build . --cache-from kwizapp/poster-service:latest --tag registry.heroku.com/kwiz-poster-service/web
+      - name: Push the Docker image to Heroku
+        run: docker push registry.heroku.com/kwiz-poster-service/web
 
   deploy:
     runs-on: ubuntu-latest
+    needs: [test, build_heroku]
 
     steps:
       - name: Login to Heroku
@@ -61,3 +69,9 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         with:
           args: container:login
+      - name: Release the new version
+        uses: actions/heroku@master
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        with:
+          args: container:release -a calm-fortress-1234 web
