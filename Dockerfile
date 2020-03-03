@@ -11,6 +11,8 @@ RUN set -x && npm ci
 
 # inject service logic
 COPY --chown=1000:0 src /app/
+COPY --chown=1000:0 serve.sh /serve.sh
+RUN set -x && chmod u+x /serve.sh
 
 # start the micro server on a dynamic port (as required by Heroku)
-CMD ["npm", "start", "--", "-l", "tcp://0.0.0.0:${PORT-3000}"]
+CMD ["/serve.sh"]
