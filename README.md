@@ -1,5 +1,7 @@
 # poster-service
 
+This service is responsible for returning urls of movie poster images for a specific movie-ID. It uses a `Heroku-Postgres` database that stores the urls related to the movies.
+
 ## Database
 
 **Postgres:** We use the free postgres database addon offered by Heroku
@@ -15,8 +17,16 @@
 
 ## How to run
 
-`npm run start`
+```bash
+npm run start
+```
+
+This will the micro HTTP service on PORT 3000.
 
 ## Test
 
-`npm run test`
+```bash
+npm run test
+```
+
+For testing, we use the suggested test-runner [ava](https://github.com/avajs/ava).
