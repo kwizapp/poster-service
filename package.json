@@ -14,13 +14,15 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "start": "micro index.js",
+    "start": "micro src/index.js",
     "test": "ava"
   },
   "dependencies": {
     "micro": "9.3.4",
     "request": "2.88.2",
-    "request-promise": "4.2.5"
+    "request-promise": "4.2.5",
+    "dotenv": "^8.2.0",
+    "pg": "7.18.2"
   },
   "devDependencies": {
     "ava": "3.5.0",
