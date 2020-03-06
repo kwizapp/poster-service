@@ -59,7 +59,7 @@ jobs:
           username: _
           password: ${{ secrets.HEROKU_API_KEY }}
       - name: Build the Docker image
-        run: docker build -f Dockerfile.prod . --cache-from kwizapp/poster-service:latest --tag registry.heroku.com/kwiz-poster-service/web
+        run: docker build -f Dockerfile.prod . --cache-from kwizapp/poster-service:latest-prod --tag registry.heroku.com/kwiz-poster-service/web
       - name: Push the Docker image to Heroku
         run: docker push registry.heroku.com/kwiz-poster-service/web
 
