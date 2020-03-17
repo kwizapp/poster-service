@@ -1,6 +1,8 @@
-const { parse } = require("url");
 const axios = require("axios");
 const { createError } = require("micro");
+const { parse } = require("url");
+
+const validate = require("./validate");
 
 require("dotenv").config();
 
@@ -8,7 +10,8 @@ module.exports = async (req, res) => {
   const { query } = parse(req.url, true);
   const { id } = query;
 
-  // TODO: validate the passed parameters
+  // validate the passed parameters
+  validate(id);
 
   // Setup URL for fetching data from OMDb
   const url = `https://www.omdbapi.com/?i=${id}&apikey=${process.env.API_KEY}`;
