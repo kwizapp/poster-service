@@ -7,7 +7,7 @@ const addSizeToUrl = function(url, size) {
   if (exists === -1) {
     throw createError(
       400,
-      `Unable to fetch movie poster with specified size ${size}`
+      `Unable to fetch movie poster because the provided url is invalid.`
     );
   } else {
     return url.replace("SX300", `SX${size}`);

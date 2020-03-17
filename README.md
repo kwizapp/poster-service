@@ -29,9 +29,17 @@ This will start the micro HTTP service on PORT 3000.
 
 **Response**:
 
+**Example:**
+
+```bash
+http://localhost:3000/?id=tt1477834
+```
+
+**Returns:**
+
 ```json
 {
-  "poster": "https://m.media-amazon.com/images/M/MV5BOTk5ODg0OTU5M15BMl5BanBnXkFtZTgwMDQ3MDY3NjM@._V1_SX345.jpg"
+  "poster": "https://m.media-amazon.com/images/M/MV5BOTk5ODg0OTU5M15BMl5BanBnXkFtZTgwMDQ3MDY3NjM@._V1_SX300.jpg"
 }
 ```
 
