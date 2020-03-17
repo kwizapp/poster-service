@@ -20,7 +20,7 @@ test("add size to URL (wrong input URL)", t => {
 
   const error = t.throws(() => addSizeToUrl(input, size));
 
-  const expected = `Unable to fetch movie poster with specified size ${size}`;
+  const expected = `Unable to fetch movie poster because the provided url is invalid.`;
 
   t.is(error.message, expected);
 });
