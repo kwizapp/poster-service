@@ -1,27 +1,47 @@
 # poster-service
 
-This service is responsible for returning urls of movie poster images for a specific movie-ID. It uses a `Heroku-Postgres` database that stores the urls related to the movies.
+This service is responsible for returning urls of movie poster images for a specific `IMDb id`. It acts as a middleware and talks directly to https://www.omdbapi.com/. From there it fetches the poster-url and returns it.
 
-## Database
+## Development
 
-**Postgres:** We use the free postgres database addon offered by Heroku
-
-- https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-node-js
-- https://devcenter.heroku.com/articles/connecting-to-heroku-postgres-databases-from-outside-of-heroku#credentials
-
-## What to do
+### Environment Variables
 
 - create a `.env` file based on `.env.template`
-- add the DATABASE_URL
-  - you can get the url from within the secrets on github or on heroku inside the `poster-service` app addons
+- add an `API-KEY` for https://www.omdbapi.com/ (you can create one [here](https://www.omdbapi.com/apikey.aspx))
+  - the `API-KEY` is already set on GitHub for the actions
 
-## How to run
+### Local dev with `micro-dev`
 
 ```bash
-npm run start
+npm run dev
 ```
 
-This will the micro HTTP service on PORT 3000.
+This will start the micro HTTP service on PORT 3000.
+
+## API
+
+`/?id=<id>&size=<size>`
+
+| Parameter | Type     | Description                                                       |
+| :-------- | :------- | :---------------------------------------------------------------- |
+| `id`      | `string` | **Required**. IMDb ID, unique to a film                           |
+| `size`    | `number` | _Optional_. Size of the movie poster. Integer between [300, 1000] |
+
+**Response**:
+
+**Example:**
+
+```bash
+http://localhost:3000/?id=tt1477834
+```
+
+**Returns:**
+
+```json
+{
+  "poster": "https://m.media-amazon.com/images/M/MV5BOTk5ODg0OTU5M15BMl5BanBnXkFtZTgwMDQ3MDY3NjM@._V1_SX300.jpg"
+}
+```
 
 ## Test
 

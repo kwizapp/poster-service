@@ -15,17 +15,20 @@
   "main": "src/index.js",
   "scripts": {
     "start": "micro src/index.js",
+    "dev": "micro-dev src/index.js",
     "test": "ava"
   },
   "dependencies": {
+    "axios": "0.19.2",
+    "dotenv": "8.2.0",
     "micro": "9.3.4",
     "request": "2.88.2",
-    "request-promise": "4.2.5",
-    "dotenv": "8.2.0",
-    "pg": "7.18.2"
+    "request-promise": "4.2.5"
   },
   "devDependencies": {
     "ava": "3.5.0",
-    "test-listen": "1.1.0"
+    "micro-dev": "3.0.0",
+    "test-listen": "1.1.0",
+    "url": "0.11.0"
   }
 }
