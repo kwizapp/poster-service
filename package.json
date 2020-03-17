@@ -26,7 +26,8 @@
   },
   "devDependencies": {
     "ava": "3.5.0",
+    "micro-dev": "3.0.0",
     "test-listen": "1.1.0",
-    "micro-dev": "3.0.0"
+    "url": "^0.11.0"
   }
 }
