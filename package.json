@@ -19,6 +19,7 @@
     "test": "ava"
   },
   "dependencies": {
+    "axios": "0.19.2",
     "dotenv": "8.2.0",
     "micro": "9.3.4",
     "request": "2.88.2",
@@ -28,6 +29,6 @@
     "ava": "3.5.0",
     "micro-dev": "3.0.0",
     "test-listen": "1.1.0",
-    "url": "^0.11.0"
+    "url": "0.11.0"
   }
 }
