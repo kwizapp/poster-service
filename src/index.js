@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       poster: data.Poster
     };
   } catch (error) {
-    console.log(error.response.data.Error);
+    // console.log(error.response.data.Error);
     throw createError(400, "Unable to get movie poster from omdbapi.com");
   }
 };
