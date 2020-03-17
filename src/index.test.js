@@ -5,11 +5,12 @@ const request = require("request-promise");
 
 const server = require("./index");
 
-test("main endpoint", async t => {
+test("poster API", async t => {
   const service = micro(server);
   const url = await listen(service);
-  const body = await request(url);
+  const body = await request(url + "/?id=10");
 
-  t.true("Welcome to Micro" === body);
+  t.deepEqual(body, '{"poster":"poster for IMDb-ID 10"}');
+
   service.close();
 });
