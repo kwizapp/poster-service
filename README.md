@@ -18,15 +18,22 @@ npm run dev
 
 This will start the micro HTTP service on PORT 3000.
 
-## API Example
+## API
 
-```bash
-http://localhost:3000/?id=tt1477834
+`/?id=<id>&size=<size>`
+
+| Parameter | Type     | Description                                                       |
+| :-------- | :------- | :---------------------------------------------------------------- |
+| `id`      | `string` | **Required**. IMDb ID, unique to a film                           |
+| `size`    | `number` | _Optional_. Size of the movie poster. Integer between [300, 1000] |
+
+**Response**:
+
+```json
+{
+  "poster": "https://m.media-amazon.com/images/M/MV5BOTk5ODg0OTU5M15BMl5BanBnXkFtZTgwMDQ3MDY3NjM@._V1_SX345.jpg"
+}
 ```
-
-`id`: official IMDb ID of a movie/series
-
-This will return a url for movie-poster for the movie **Aquaman**
 
 ## Test
 
