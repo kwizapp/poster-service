@@ -5,7 +5,7 @@ FROM node:13.8-alpine
 USER 1000
 
 # inject and install dependencies
-COPY --chown=1000:0 package.json package-lock.json /app/
+COPY --chown=1000:0 package.json package-lock.json .npmrc /app/
 WORKDIR /app
 RUN set -x && npm ci
 
