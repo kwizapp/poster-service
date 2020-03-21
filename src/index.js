@@ -2,8 +2,11 @@ const axios = require("axios");
 const { createError } = require("micro");
 const { parse } = require("url");
 
-const { validateId, validateSize } = require("./validate");
-const { addSizeToUrl } = require("./util");
+const {
+  validateId,
+  validateSize,
+  addSizeToUrl
+} = require("@kwizapp/kwiz-utils");
 
 require("dotenv").config();
 
@@ -12,10 +15,10 @@ module.exports = async (req, res) => {
   const { id, size } = query;
 
   // validate the passed id
-  validateId(id);
+  validateId(createError, id);
 
   // validate the passed size
-  const imgSize = validateSize(size);
+  const imgSize = validateSize(createError, size);
 
   // Setup URL for fetching data from OMDb
   const url = `https://www.omdbapi.com/?i=${id}&apikey=${process.env.API_KEY}`;
@@ -26,7 +29,7 @@ module.exports = async (req, res) => {
     const data = response.data;
 
     // construct url with the integrated size parameters
-    const posterUrl = addSizeToUrl(data.Poster, imgSize);
+    const posterUrl = addSizeToUrl(createError, data.Poster, imgSize);
 
     return {
       poster: posterUrl
