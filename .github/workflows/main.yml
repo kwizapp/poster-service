@@ -27,7 +27,7 @@ jobs:
         env:
           CI: "true"
           API_KEY: ${{ secrets.OMDB_API_KEY }}
-          NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GPR_ACCESS_TOKEN}}
 
   build_docker_hub:
     runs-on: ubuntu-latest
