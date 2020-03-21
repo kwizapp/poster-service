@@ -4,6 +4,14 @@ This service is responsible for returning urls of movie poster images for a spec
 
 ## Development
 
+### Login to NPM registry
+
+As we are using a library provided by our organization [`kwiz-utils`](https://github.com/kwizapp/kwiz-utils). For npm to find the package, do the following:
+
+- Login to Github Package Registry using `npm login --registry=https://npm.pkg.github.com` and your credentials. Any provided access token will need at least the `repo` and `read:packages` scope.
+
+After that, `npm install` should run without any problems.
+
 ### Environment Variables
 
 - create a `.env` file based on `.env.template`
