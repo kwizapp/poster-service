@@ -27,7 +27,7 @@
     "request-promise": "4.2.5"
   },
   "devDependencies": {
-    "ava": "3.5.0",
+    "ava": "3.5.1",
     "micro-dev": "3.0.0",
     "test-listen": "1.1.0",
     "url": "0.11.0"
