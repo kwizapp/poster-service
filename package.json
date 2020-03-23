@@ -22,14 +22,12 @@
     "@kwizapp/kwiz-utils": "0.0.2",
     "axios": "0.19.2",
     "dotenv": "8.2.0",
-    "micro": "9.3.4",
-    "request": "2.88.2",
-    "request-promise": "4.2.5"
+    "micro": "9.3.4"
   },
   "devDependencies": {
-    "jest": "^25.1.0",
+    "jest": "25.1.0",
     "micro-dev": "3.0.0",
-    "test-listen": "1.1.0",
+    "supertest": "4.0.2",
     "url": "0.11.0"
   }
 }
