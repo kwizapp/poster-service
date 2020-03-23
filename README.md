@@ -35,19 +35,29 @@ This will start the micro HTTP service on PORT 3000.
 | `id`      | `string` | **Required**. IMDb ID, unique to a film                           |
 | `size`    | `number` | _Optional_. Size of the movie poster. Integer between [300, 1000] |
 
-**Response**:
+#### Examples
 
-**Example:**
+**By ID**
 
 ```bash
 http://localhost:3000/?id=tt1477834
 ```
 
-**Returns:**
-
 ```json
 {
   "poster": "https://m.media-amazon.com/images/M/MV5BOTk5ODg0OTU5M15BMl5BanBnXkFtZTgwMDQ3MDY3NjM@._V1_SX300.jpg"
+}
+```
+
+**By ID with Size**
+
+```bash
+http://localhost:3000/?id=tt3896198&size=450
+```
+
+```json
+{
+  "poster": "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX450.jpg"
 }
 ```
 
@@ -57,4 +67,4 @@ http://localhost:3000/?id=tt1477834
 npm run test
 ```
 
-For testing, we use the suggested test-runner [ava](https://github.com/avajs/ava).
+For testing, we use [jest](https://jestjs.io/en/)
