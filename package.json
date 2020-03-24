@@ -19,6 +19,8 @@
     "test": "jest",
     "test:handles": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
+    "lint:ci": "eslint \"{src,test}/**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"{src,test}/**/*.{js,ts,tsx}\" --fix",
     "format": "prettier --write \"{src,test}/**/*.{js,ts,tsx}\"",
     "format:ci": "prettier --list-different \"{src,test}/**/*.{js,ts,tsx}\""
   },
