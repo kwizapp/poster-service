@@ -27,6 +27,8 @@
     "micro": "9.3.4"
   },
   "devDependencies": {
+    "@kwizapp/eslint-config-js": "0.0.8",
+    "@kwizapp/prettier-config": "0.0.8",
     "jest": "25.1.0",
     "micro-dev": "3.0.0",
     "supertest": "4.0.2",
