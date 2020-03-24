@@ -31,9 +31,12 @@
   "devDependencies": {
     "@kwizapp/eslint-config-js": "0.0.8",
     "@kwizapp/prettier-config": "0.0.8",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-prettier": "3.1.2",
     "jest": "25.1.0",
     "micro-dev": "3.0.0",
-    "prettier": "^2.0.2",
+    "prettier": "2.0.2",
     "supertest": "4.0.2",
     "url": "0.11.0"
   },
