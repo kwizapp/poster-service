@@ -10,7 +10,7 @@ const {
 
 require('dotenv').config()
 
-module.exports = async (req, res) => {
+module.exports = async (req) => {
   const { query } = parse(req.url, true)
   const { id, size } = query
 
