@@ -18,7 +18,9 @@
     "dev": "micro-dev src/index.js",
     "test": "jest",
     "test:handles": "jest --detectOpenHandles",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "format": "prettier --write \"{src,test}/**/*.{js,ts,tsx}\"",
+    "format:ci": "prettier --list-different \"{src,test}/**/*.{js,ts,tsx}\""
   },
   "dependencies": {
     "@kwizapp/kwiz-utils": "0.0.2",
@@ -31,6 +33,7 @@
     "@kwizapp/prettier-config": "0.0.8",
     "jest": "25.1.0",
     "micro-dev": "3.0.0",
+    "prettier": "^2.0.2",
     "supertest": "4.0.2",
     "url": "0.11.0"
   },
