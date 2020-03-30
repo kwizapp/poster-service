@@ -40,8 +40,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Logger
-        run: echo ${{ github.ref }}
       - uses: azure/docker-login@v1
         if: github.ref == 'dev' || github.ref == 'master'
         with:
