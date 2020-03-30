@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Logger
-        run: echo ${{ gibhub.base_ref }}
+        run: echo ${{ github.base_ref }}
       - uses: azure/docker-login@v1
         if: github.base_ref == 'refs/heads/dev' || github.base_ref == 'refs/heads/master'
         with:
