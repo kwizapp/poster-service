@@ -1,6 +1,6 @@
 name: CI
 
-on: [pull_request]
+on: [push]
 
 jobs:
   test:
@@ -41,9 +41,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Logger
-        run: echo ${{ github.base_ref }}
+        run: echo ${{ github.ref }}
       - uses: azure/docker-login@v1
-        if: github.base_ref == 'dev' || github.base_ref == 'master'
+        if: github.ref == 'dev' || github.ref == 'master'
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
@@ -52,13 +52,13 @@ jobs:
       - name: Build the Docker image (prod)
         run: docker build -f Dockerfile.prod . --tag kwizapp/poster-service:latest --build-arg NODE_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
       - name: Push the Docker image to Docker Hub
-        if: github.base_ref == 'dev' || github.base_ref == 'master'
+        if: github.ref == 'dev' || github.ref == 'master'
         run: docker push kwizapp/poster-service
 
   build_heroku:
     runs-on: ubuntu-latest
     needs: test
-    if: github.base_ref == 'dev' || github.base_ref == 'master'
+    if: github.ref == 'dev' || github.ref == 'master'
 
     steps:
       - uses: actions/checkout@v2
@@ -79,7 +79,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [test, build_heroku]
-    if: github.base_ref == 'dev' || github.base_ref == 'master'
+    if: github.ref == 'dev' || github.ref == 'master'
 
     steps:
       - name: Login to Heroku
