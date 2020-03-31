@@ -14,8 +14,8 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
+    "dev": "micro-dev -p 3002 src/index.js ",
     "start": "micro src/index.js",
-    "dev": "micro-dev src/index.js",
     "test": "jest",
     "test:handles": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@kwizapp/eslint-config-js": "0.0.8",
     "@kwizapp/prettier-config": "0.0.8",
+    "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",
     "eslint-plugin-prettier": "3.1.2",
