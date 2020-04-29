@@ -2,7 +2,7 @@
 FROM node:14-alpine AS builder
 
 ARG NODE_AUTH_TOKEN
-ENV NODE_ENV "prod"
+ENV NODE_ENV "production"
 ENV PORT 3002
 
 # inject and install dependencies
