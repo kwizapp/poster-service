@@ -1,9 +1,7 @@
-# --- BUILDER ---
-FROM node:14-alpine AS builder
+# --- DEPENDENCIES ---
+FROM node:14-alpine AS deps
 
 ARG NODE_AUTH_TOKEN
-ENV API_KEY=
-ENV PORT=3002
 
 # inject and install dependencies
 COPY --chown=1000:0 package.json package-lock.json /app/
@@ -14,8 +12,11 @@ RUN set -x && npm ci
 # --- RUNTIME ---
 FROM node:14-alpine
 
+ENV API_KEY=
+ENV PORT=3002
+
 # inject dependencies
-COPY --from=builder --chown=1000:0 /app/node_modules /app/node_modules
+COPY --from=deps --chown=1000:0 /app/node_modules /app/node_modules
 
 # inject service logic
 COPY --chown=1000:0 package.json /app/package.json
