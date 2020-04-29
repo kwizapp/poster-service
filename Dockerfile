@@ -5,8 +5,8 @@ ARG NODE_AUTH_TOKEN
 
 # inject and install dependencies
 COPY --chown=1000:0 package.json package-lock.json /app/
+COPY .npmrc.ci /app/.npmrc
 WORKDIR /app
-COPY .npmrc.ci .npmrc
 RUN set -x && npm ci
 
 # --- RUNTIME ---
