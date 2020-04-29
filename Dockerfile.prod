@@ -2,8 +2,6 @@
 FROM node:14-alpine AS builder
 
 ARG NODE_AUTH_TOKEN
-
-# set node to a production environment
 ENV NODE_ENV "prod"
 ENV PORT 3002
 

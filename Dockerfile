@@ -2,6 +2,7 @@
 FROM node:14-alpine AS builder
 
 ARG NODE_AUTH_TOKEN
+ENV PORT 3002
 
 # inject and install dependencies
 COPY --chown=1000:0 package.json package-lock.json /app/
