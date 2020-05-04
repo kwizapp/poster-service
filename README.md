@@ -24,7 +24,7 @@ After that, `npm install` should run without any problems.
 npm run dev
 ```
 
-This will start the micro HTTP service on PORT 3000.
+This will start the micro HTTP service on PORT 3002.
 
 ## API
 
@@ -40,7 +40,7 @@ This will start the micro HTTP service on PORT 3000.
 **By ID**
 
 ```bash
-http://localhost:3000/?id=tt1477834
+http://localhost:3002/?id=tt1477834
 ```
 
 ```json
@@ -52,7 +52,7 @@ http://localhost:3000/?id=tt1477834
 **By ID with Size**
 
 ```bash
-http://localhost:3000/?id=tt3896198&size=450
+http://localhost:3002/?id=tt3896198&size=450
 ```
 
 ```json
