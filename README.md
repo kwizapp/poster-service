@@ -4,7 +4,11 @@ This service is responsible for returning urls of movie poster images for a spec
 
 ## Development
 
-### Login to NPM registry
+This service depends on the following:
+* GitHub Access Token that can read packages (`read:packages`)
+* API key for www.omdbapi.com (`.env` file created from `.env.template`)
+
+### GitHub Access Token NPM registry
 
 As we are using a library provided by our organization [`kwiz-utils`](https://github.com/kwizapp/kwiz-utils). For npm to find the package, do the following:
 
@@ -12,13 +16,13 @@ As we are using a library provided by our organization [`kwiz-utils`](https://gi
 
 After that, `npm install` should run without any problems.
 
-### Environment Variables
+### Add API Key to `.env` file
 
 - create a `.env` file based on `.env.template`
 - add an `API-KEY` for https://www.omdbapi.com/ (you can create one [here](https://www.omdbapi.com/apikey.aspx))
   - the `API-KEY` is already set on GitHub for the actions
 
-### Local dev with `micro-dev`
+### Local Development with `micro-dev`
 
 ```bash
 npm run dev
@@ -28,43 +32,13 @@ This will start the micro HTTP service on PORT 3002.
 
 ## API
 
-`/?id=<id>&size=<size>`
+please consult the [wiki](https://github.com/kwizapp/kwiz/wiki/APIs#poster-service) for the API documentation and examples
 
-| Parameter | Type     | Description                                                       |
-| :-------- | :------- | :---------------------------------------------------------------- |
-| `id`      | `string` | **Required**. IMDb ID, unique to a film                           |
-| `size`    | `number` | _Optional_. Size of the movie poster. Integer between [300, 1000] |
-
-#### Examples
-
-**By ID**
-
-```bash
-http://localhost:3002/?id=tt1477834
-```
-
-```json
-{
-  "poster": "https://m.media-amazon.com/images/M/MV5BOTk5ODg0OTU5M15BMl5BanBnXkFtZTgwMDQ3MDY3NjM@._V1_SX300.jpg"
-}
-```
-
-**By ID with Size**
-
-```bash
-http://localhost:3002/?id=tt3896198&size=450
-```
-
-```json
-{
-  "poster": "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX450.jpg"
-}
-```
 
 ## Test
+
+To execute all tests, run the following command:
 
 ```bash
 npm run test
 ```
-
-For testing, we use [jest](https://jestjs.io/en/)
