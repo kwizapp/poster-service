@@ -32,7 +32,7 @@ This will start the micro HTTP service on PORT 3002.
 
 ## API
 
-please consult the [wiki](https://github.com/kwizapp/kwiz/wiki/APIs#poster-service) for the API documentation and examples
+Please consult the [wiki](https://github.com/kwizapp/kwiz/wiki/API-Reference#poster-service) for the API documentation and examples.
 
 
 ## Test
