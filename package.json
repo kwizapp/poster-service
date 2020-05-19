@@ -25,14 +25,14 @@
     "format:ci": "prettier --list-different \"{src,test}/**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@kwizapp/kwiz-utils": "0.0.2",
+    "@kwizapp/kwiz-utils": "1.0.1",
     "axios": "0.19.2",
     "dotenv": "8.2.0",
     "micro": "9.3.4"
   },
   "devDependencies": {
-    "@kwizapp/eslint-config-js": "0.0.10",
-    "@kwizapp/prettier-config": "0.0.10",
+    "@kwizapp/eslint-config-js": "1.0.0",
+    "@kwizapp/prettier-config": "1.0.0",
     "cross-env": "7.0.2",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",
