@@ -10,6 +10,9 @@ const {
 
 require('dotenv').config()
 
+/**
+ * Main entry point
+ */
 module.exports = async (req) => {
   const { query } = parse(req.url, true)
   const { id, size } = query
