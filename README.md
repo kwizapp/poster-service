@@ -2,11 +2,19 @@
 
 This service is responsible for returning urls of movie poster images for a specific `IMDb id`. It acts as a middleware and talks directly to https://www.omdbapi.com/. From there it fetches the poster-url and returns it.
 
+## Repository Structure
+
+| Directory      | Description                                                                                                                  |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `src/index.js` | Main entry point for the HTTP server, it uses the [kwiz-utils](https://github.com/kwizapp/kwiz-utils) library for validation |
+| `test`         | e2e testing with [jest](https://jestjs.io/)                                                                                  |
+
 ## Development
 
 This service depends on the following:
-* GitHub Access Token that can read packages (`read:packages`)
-* API key for www.omdbapi.com (`.env` file created from `.env.template`)
+
+- GitHub Access Token that can read packages (`read:packages`)
+- API key for www.omdbapi.com (`.env` file created from `.env.template`)
 
 ### GitHub Access Token NPM registry
 
@@ -33,7 +41,6 @@ This will start the micro HTTP service on PORT 3002.
 ## API
 
 Please consult the [wiki](https://github.com/kwizapp/kwiz/wiki/API-Reference#poster-service) for the API documentation and examples.
-
 
 ## Test
 
